@@ -40,12 +40,12 @@ const modalContent = document.querySelector('.modal-content');
 
 function getDrinkWord(count) {
     let number = " напитков";
-     if (count === 1) {
-         number = " напиток";
-     } else if (count % 10 === 2 || count % 10 === 3 || count % 10 === 4) {
-         number = " напитка";
-     }
-     return number;
+    if (count === 1) {
+        number = " напиток";
+    } else if (count % 10 === 2 || count % 10 === 3 || count % 10 === 4) {
+        number = " напитка";
+    }
+    return number;
 }
 
 submitBtn.addEventListener('click', (event) => {
@@ -96,13 +96,16 @@ submitBtn.addEventListener('click', (event) => {
         row.appendChild(drink);
 
         const milk = document.createElement('td');
-        const milkSelect = beverage.querySelector('input[name="milk"]:checked');
+        const milkRadios = beverage.querySelectorAll('input[type="radio"]');
+        let selectedMilk = '—';
 
-        console.log(milkSelect)
+        milkRadios.forEach(radio => {
+            if (radio.checked) {
+                selectedMilk = radio.nextElementSibling.textContent;
+            }
+        });
 
-        milk.textContent = milkSelect.nextElementSibling.textContent;
-
-        console.log(milk)
+        milk.textContent = selectedMilk;
 
         row.appendChild(milk)
 
