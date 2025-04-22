@@ -11,3 +11,15 @@ addBtn.addEventListener('click', (event) => {
 
     form.insertBefore(newDrink, submitButton);
 });
+
+function CreateCross(form) {
+    let cross = document.createElement("button");
+    cross.textContent = "X";
+    cross.style.float = "right";
+    cross.className = "cross-button";
+    form.prepend(cross);
+    return cross;
+}
+
+let form = document.querySelector(".beverage");
+CreateCross(form);
