@@ -25,10 +25,13 @@ let form = document.querySelector(".beverage");
 CreateCross(form);
 
 const submitBtn = document.querySelector('.submit-button');
+const closeModalBtn = document.querySelector('.close-modal');
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const modal = document.querySelector('.modal');
     modal.style.display = 'flex';
+
+    closeModalBtn.style.display = 'flex';
 
 })
 
