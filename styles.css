@@ -45,3 +45,13 @@
     border-radius: 5px;
 }
 
+
+.modal {
+    display: none;
+    height: 500px;
+    width: 80%;
+    border: 2px black solid;
+    justify-content: center;
+    margin: 0 auto;
+
+}
