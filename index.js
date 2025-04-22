@@ -26,12 +26,33 @@ CreateCross(form);
 
 const submitBtn = document.querySelector('.submit-button');
 const closeModalBtn = document.querySelector('.close-modal');
+const modalContent = document.querySelector('.modal-content');
+
+function getDrinkWord(count) {
+    let number = " напитков";
+     if (count === 1) {
+         number = " напиток";
+     } else if (count % 10 === 2 || count % 10 === 3 || count % 10 === 4) {
+         number = " напитка";
+     }
+     return number;
+}
+
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const modal = document.querySelector('.modal');
+    const drinkCount = document.querySelectorAll('.beverage').length;
+    const drinkWord = getDrinkWord(currentDrinkNo);
+    
+    modalContent.innerHTML = `<p>Вы заказали ${currentDrinkNo} ${drinkWord}</p>`;
     modal.style.display = 'flex';
 
     closeModalBtn.style.display = 'flex';
 
 })
+
+closeModalBtn.addEventListener('click', () => {
+    const modal = document.querySelector('.modal');
+    modal.style.display = 'none';
+});
 
