@@ -106,11 +106,18 @@ submitBtn.addEventListener('click', (event) => {
         });
 
         milk.textContent = selectedMilk;
-
         row.appendChild(milk)
 
-        table.appendChild(row)
+        const dop = document.createElement('td');
+        const dopOptions = beverage.querySelectorAll('input[type="checkbox"]:checked');
+        const dopText = Array.from(dopOptions).map(opt => opt.nextElementSibling.textContent).join(', ');
+        dop.textContent = dopText;
+        row.appendChild(dop);
+
+        tbody.appendChild(row)
     })
+
+    table.appendChild(tbody);
 
     modalContent.appendChild(table);
 
