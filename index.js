@@ -22,6 +22,15 @@ addBtn.addEventListener('click', (event) => {
     form.insertBefore(newDrink, addButton);
 });
 
+document.addEventListener("input", function(e) {
+    if (e.target.tagName === "TEXTAREA") {
+        let userInput = e.target.value;
+        let userText = document.querySelector(".user-input-text");
+
+        userText.innerHTML = userInput.replace(/(срочно|быстрее|побыстрее|скорее|поскорее|очень нужно)/gi, '<b>$1</b>');
+    }
+});
+
 function CreateCross(form) {
     let cross = document.createElement("button");
     cross.textContent = "X";
